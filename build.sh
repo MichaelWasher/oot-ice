@@ -5,7 +5,7 @@ ICE_DRIVER_VER=$1; shift
 OCP_VER=$1; shift
 
 # Point to your local registry
-LOCAL_REGISTRY='cnfde2.ptp.lab.eng.bos.redhat.com:5000'
+LOCAL_REGISTRY='quay.io/mwasher'
 
 BASE_IMAGE='registry.access.redhat.com/ubi8-minimal:latest'
 DRIVER_IMAGE='oot-ice'
@@ -28,7 +28,7 @@ for KERNEL_VER in `echo "${STD_KERNEL_VER} ${RT_KERNEL_VER}"`; do
    --build-arg DRIVER_VER=${ICE_DRIVER_VER} \
    --build-arg KERNEL_VERSION=${KERNEL_VER}\
    --authfile=${PULL_SECRET} \
-    -t ${LOCAL_REGISTRY}/intel/${DRIVER_IMAGE}:${TAG}
+    -t ${LOCAL_REGISTRY}/${DRIVER_IMAGE}:${TAG}
 
-  podman push --authfile=${PULL_SECRET} --tls-verify=false ${LOCAL_REGISTRY}/intel/${DRIVER_IMAGE}:${TAG}
+  podman push --authfile=${PULL_SECRET} --tls-verify=false ${LOCAL_REGISTRY}/${DRIVER_IMAGE}:${TAG}
 done

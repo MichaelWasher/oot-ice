@@ -32,8 +32,8 @@ spec:
           Type=oneshot
           RemainAfterExit=true
           # Use bash to workaround https://github.com/coreos/rpm-ostree/issues/1936
-          ExecStart=/usr/bin/bash -c "/usr/local/bin/oot-ice load  registry.ran-vcl01.ptp.lab.eng.bos.redhat.com:5000/intel/oot-ice"
-          ExecStop=/usr/bin/bash -c "/usr/local/bin/oot-ice unload registry.ran-vcl01.ptp.lab.eng.bos.redhat.com:5000/intel/oot-ice"
+          ExecStart=/usr/bin/bash -c "/usr/local/bin/oot-ice load  quay.io/mwasher/oot-ice"
+          ExecStop=/usr/bin/bash -c "/usr/local/bin/oot-ice unload quay.io/mwasher/oot-ice"
           StandardOutput=journal+console
 
           [Install]
