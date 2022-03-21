@@ -25,5 +25,7 @@ ARG KERNEL_VERSION
 RUN microdnf install --disablerepo=* --enablerepo=ubi-8-baseos -y kmod
 
 COPY --from=builder /build/ice-$DRIVER_VER/src/ice.ko /ice-driver/
+COPY --from=builder /build/ice-$DRIVER_VER/ddp/*.pkg  /ice-driver/
+
 COPY scripts/load.sh scripts/unload.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/load.sh && chmod +x /usr/local/bin/unload.sh

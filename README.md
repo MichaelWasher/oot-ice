@@ -23,3 +23,8 @@ A `MachineConfig` is suplied to deploy the driver container to the cluster.
 ```bash
 oc apply -f mc-oot-ice.yaml
 ```
+
+
+/usr/lib/firmware/updates/intel/ice/ddp/ice.pkg
+/usr/lib/firmware/intel/ice/ddp/ice.pkg
+
